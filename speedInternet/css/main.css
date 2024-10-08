@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Semi+Condensed:wght@1;100;200;300;400;500;600;700;800;900;1000&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Sofia Sans Semi Condensed', sans-serif;
+}
+:root{
+    --color1:#0E4C73;
+    --color2:#092B40;
+    --color3:#1790BF;
+    --color4:#29B9D9;
+    --color5:#35F2F2;
+    
+    --min-border: 8px;
+
+    --min-width:250px;
+    --min-height:250px;
+}
+body{
+    min-height: 100vh;
+    background-color: var(--color2);
+    
+}
+
+.container{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 15% 1fr;
+    place-items: center;
+}
+.upTestSpeed{
+    margin-bottom: 30px;
+}
+.title{
+    margin-top: 30px;
+    font-size: 3em;
+    text-transform: uppercase;
+    font-weight: 800;
+    background-image: linear-gradient(to left, var(--color3), var(--color4), var(--color5));
+    -webkit-background-clip: text;
+    background-clip:text;
+    -webkit-text-fill-color: transparent;
+}
+
+.buttonCheck{
+    width: var(--min-width);
+    height: var(--min-height);
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1s ease-in-out;
+}
+.buttonCheck span{
+    width: inherit;
+    height: inherit;
+    background: var(--color1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--color5);
+    cursor: pointer;
+}
+.buttonCheck.noActive{
+    opacity: 0;
+    visibility: hidden;
+    width: 100px;
+    height: 100px;
+}
+
+.buttonCheck::after{
+    content: "";
+    width: calc(100% + 7px);
+    height: calc(100% + 7px);
+    border-radius: 50%;
+    background-image: linear-gradient(to left, var(--color1) , var(--color3), var(--color4), var(--color5));
+    position: absolute;
+    z-index: -3;
+    
+    animation:animationBorder 2s linear infinite  ;
+}
+@keyframes animationBorder{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.buttonCheck::before,
+.loader.active .outBorder::before,
+.loader.active .outBorder::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: transparent;
+    position: absolute;
+    border: 3px solid var(--color3);
+    z-index: -1;
+    animation:outBorder 3s ease-in-out infinite ;
+}
+.loader.active .outBorder::before{
+    width: 100% ;
+    height: 100% ;
+    opacity: 0;
+    animation:outBorder 4s ease-in-out infinite ;
+}
+.loader.active .outBorder::after{
+    border-color: var(--color5);
+    width: calc(100% - 5px);
+    height: calc(100% - 5px) ;
+    opacity: 0;
+    animation:outBorder 6s ease-in-out infinite ;
+}
+@keyframes outBorder{
+    20%{
+        opacity: 0.7;
+    }
+    50%,80%{
+        transform: scale(1.4);
+        opacity: 0;
+
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.loader{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: conic-gradient(#29b9d949 0%, transparent 65%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease-in-out;
+}
+.loader.active{
+    opacity: 1;
+    visibility: visible;
+    width: var(--min-width);
+    height: var(--min-height);
+    animation: animationLoader 4s linear infinite;
+}
+@keyframes animationLoader {    
+    50%,100%{
+        transform:  translate(-50%, -50%) rotate(360deg);
+    }
+}
+.loader.active .pseudoSpan{
+    display: flex;
+    width: inherit;
+    height: inherit;
+    background: transparent;
+    border-radius: 50%;
+    position: relative;
+    animation: animationSpanLoader 4s linear infinite;
+}
+@keyframes animationSpanLoader {
+    0%,50%{
+        transform: rotate(-360deg);
+    }
+    50%,100%{
+        animation-play-state: paused;
+    }
+}
+.loader.active .pseudoSpan::after{
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 8px);
+    border: 8px solid transparent;
+    border-top: 120px solid var(--color4);
+}
+.loader.active .outBorder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    display: flex;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+}
+
+.upSpeed{
+    width: var(--min-width);
+    height: var(--min-height);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: -1;
+}
+.childSpeed{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 20px solid #29b9d978;
+    border-bottom-color: transparent;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease-in-out;
+}
+.childSpeed.active{
+    opacity: 1;
+    visibility: visible;
+    width: inherit;
+    height: inherit;
+}
+.childSpeed.active::after{
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: 85px;
+    background-color:var(--color2);
+    bottom: -33px;
+    left: -20px;
+    z-index: 11;
+}
+
+.childSpeed.active  .numberSpeed {
+    font-size: 0.1em;
+    color: #35F2F2;
+    position: absolute;
+    text-align: center;
+    inset:9px;
+    transform: rotate(calc(30deg * var(--i)));
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1.2s ease-in-out;
+}
+.childSpeed.active  .numberSpeed{
+    opacity: 1;
+    visibility: visible;
+    font-size: 0.9em;
+}
+.childSpeed.active  .numberSpeed b{
+    display: inline-block;
+    transform: rotate(calc((-30deg) * var(--i)));
+}
+.childSpeed.active .needle{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    transform: translate(-60%, -106%) rotate(-125deg);/* -125deg + 31.4deg * 4 */
+    height: 0;
+    width: 0;
+    border: 8px solid transparent;
+    border-bottom: 72px solid var(--color5);    
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: animationNeedle 6s ease-in-out;
+}
+@keyframes animationNeedle {
+    90%{
+        transform: translate(-60%, -106%) rotate(var(--needle));
+    }
+    100%{
+        transform: translate(-60%, -106%) rotate(-125deg); 
+    }
+}
+
+.childSpeed.active .upMinLine{
+    width: inherit;
+    height: inherit;
+    transform: rotate(-118deg);
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: start;
+}
+.childSpeed.active .upMinLine .minLine{
+    width: 5px;
+    height: 20px;
+    position: absolute;
+    border-radius: 10px;
+    background-color: var(--color5);
+    inset: 0px;
+    left: 49%;
+    transform-origin: 50% 125px;
+    transform: rotate(calc(3.6deg*var(--number-min)));
+    box-shadow:var(--color5) 0px 2px 8px 0px;
+    opacity: 0;
+    transition: all 3s ease-in-out;
+    transition-delay: var(--d);
+}
+.childSpeed.active .upMinLine .minLine.active{
+    opacity: 1;
+}
+
+.childSpeed.active .boxNumberSpeed{
+    width: 400px;
+    min-height: 25vh;
+    background-color: var(--color1);
+    position: absolute;
+    bottom: -132px;
+    z-index: 111;
+    border-radius: var(--min-border);
+}
+.childSpeed.active .numberSpeed .titleNumber{
+    font-size: 1.2em;
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: end;
+    margin-bottom: 7px;
+}
+.childSpeed.active .numberSpeed .titleNumber .text{
+    font-size: 1.3em;
+}
+.childSpeed.active .numberSpeed .titleNumber .unit{
+    color: var(--color3);
+    font-weight: 800;
+}
+.childSpeed.active .numberSpeed .titleNumber i{
+    position: relative;
+    top: -2px;
+}
+.childSpeed.active .numberSpeed  .number{
+    font-size: 2.9em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.childSpeed.active .numberSpeed  .number .normaleNumber,
+.childSpeed.active .numberSpeed  .number .pointNumber{
+    min-width: 70px;
+    display: flex;
+    /* padding: 0 7px; */
+}
+.childSpeed.active .numberSpeed  .number .normaleNumber{
+    justify-content: flex-end;
+}
+.childSpeed.active .numberSpeed  .number .boublePoint{
+    font-size: 0.9em;
+}
+.childSpeed.active .numberSpeed .infoInternet{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 15px;
+}
+.childSpeed.active .numberSpeed .towElement{
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+.childSpeed.active .numberSpeed .towSpan{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.childSpeed.active .numberSpeed .towSpan span:first-child{
+    font-size: 1.2em;
+}
+.childSpeed.active .numberSpeed .towSpan span:last-child{
+    color: var(--color3);
+    font-size: 0.7em;
+}
+.childSpeed.active .numberSpeed .towElement i{
+    font-size: 1.6em;
+}
+.childSpeed.active .numberSpeed .org{
+    font-size: 1.3em !important;
+}
