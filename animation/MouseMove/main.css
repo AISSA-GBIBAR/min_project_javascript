@@ -1,0 +1,24 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    overflow:hidden;
+}
+.cursor{
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+.cursor .circle{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(#00d0ff, #ff005e);
+    border-radius: 50%;
+}
