@@ -1,0 +1,508 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+:root {
+    --main-color: #BFBFBF;
+    --color-2: #4C5958;
+    --color-3: #8AA6A3;
+    --color-4: #10403B;
+    --color-5: #127369;
+
+    --test-color: #092421;
+    --test-color-light: #E8E8E8;
+
+    --main-border: 10px;
+
+    --main-transition: all 0.8s linear;
+
+    --main-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+        rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+body {
+    background-color: var(--main-color);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+}
+
+.btn::after {
+    content: attr(value-test);
+    padding: 10px 30px;
+    background-color: var(--color-3);
+    border-radius: 20px;
+    color: var(--test-color-light);
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+    outline: 3px solid var(--color-4);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover::after {
+    animation: animationBTN 0.3s ease-in-out;
+    transform: translateY(-10px);
+}
+
+@keyframes animationBTN {
+    0% {
+        transform: translateY(-18px);
+    }
+
+    80% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: var(--color-4);
+    outline: 3px solid var(--color-4);
+    z-index: -1;
+    transform: translateY(0);
+    border-radius: 20px;
+}
+
+.button-Start-game {
+    font-size: 3em;
+}
+
+.button-Start-game.btn::before,
+.button-Start-game.btn::after {
+    border-radius: 40px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 600px;
+}
+
+/* ================================clock================================= */
+.clock {
+    min-width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: var(--main-box-shadow);
+    border-radius: var(--main-border);
+    position: relative;
+    background-color: var(--main-color);
+}
+
+.numberClock {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+
+}
+
+.clock .image {
+    width: 100%;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-4);
+}
+
+.clock .number {
+    font-size: 3em;
+    color: var(--color-4);
+    display: flex;
+}
+
+.clock .number span {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.clock .number .dots {
+    width: 30px;
+    position: relative;
+    top: -7px;
+}
+
+.clock .title {
+    position: absolute;
+    top: -56px;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    border-radius: 59px 59px 0 0;
+    box-shadow: inherit;
+    z-index: -1;
+    color: var(--test-color);
+}
+
+.clock .banger {
+    background-color: rgb(255, 112, 112);
+    animation: animationTitleDanger 1s linear infinite alternate;
+}
+
+@keyframes animationTitleDanger {
+    0% {
+        background-color: var(--main-color);
+    }
+
+    100% {
+        background-color: rgb(250, 93, 93);
+    }
+}
+
+.clock .dangerImage {
+    transform: rotate(40deg);
+    animation: animationDangerImage 0.4s linear infinite alternate;
+}
+
+@keyframes animationDangerImage {
+    0% {
+        transform: rotate(40deg);
+    }
+
+    100% {
+        transform: rotate(-40deg);
+    }
+}
+
+.clock .line {
+    width: 100%;
+    height: 5px;
+    background-color: var(--color-3);
+    position: absolute;
+    bottom: 0;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+}
+
+.clock .line::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-4);
+    position: absolute;
+    transform-origin: left top;
+    transform: rotateY(var(--i));
+}
+
+/* ==========================score================================ */
+.score {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    box-shadow: var(--main-box-shadow);
+    border-radius: var(--main-border);
+    letter-spacing: 2px;
+}
+
+.score span {
+    position: relative;
+    cursor: pointer;
+}
+
+.score .less-more {
+    margin-left: 25px;
+    border-radius: var(--main-border);
+    box-shadow: var(--main-box-shadow);
+}
+
+.score .less-more span {
+    padding: 0 15px;
+    position: relative;
+}
+
+.score .less-more span:first-child {
+    border-right: 2px solid var(--color-3);
+}
+
+.score .showInfo::after {
+    content: attr(text-info);
+    position: absolute;
+    padding: 10px 10px 5px 10px;
+    background-color: var(--test-color-light);
+    clip-path: polygon(0 30%, 50% 0, 100% 32%, 100% 100%, 0 100%);
+    border-radius: var(--main-border);
+    font-size: 0.6em;
+    top: 0;
+    /* 29px*/
+    opacity: 0;
+    visibility: hidden;
+    left: var(--left);
+    z-index: 11;
+    box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    transition: var(--main-transition);
+    cursor: pointer;
+}
+
+.score .showInfo:hover::after {
+    top: 29px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.score .text {
+    font-size: 1.1em;
+    letter-spacing: 1.5px;
+    color: var(--color-4);
+}
+
+/* ==============================screen================================== */
+.screen {
+    width: 100%;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--color-3);
+    box-shadow: var(--main-box-shadow);
+    border-radius: var(--main-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.screen::after {
+    content: "";
+    width: 20px;
+    height: 150%;
+    position: absolute;
+    top: -10px;
+    left: 23px;
+    transform: rotate(-45deg);
+    border-right: 10px solid var(--main-color);
+    border-left: 10px solid var(--main-color);
+}
+
+
+.card {
+    width: 50px;
+    height: 60px;
+    background-color: var(--color-5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
+    border-radius: var(--main-border);
+    color: #fff1f1;
+    font-size: 1.3em;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+    position: relative;
+}
+
+.days {
+    background-color: var(--test-color-light);
+    color: var(--test-color);
+}
+
+.card::after {
+    content: attr(text-card);
+    position: absolute;
+    font-size: 0.4em;
+    top: 4px;
+    text-transform: capitalize;
+}
+
+.card::before {
+    content: "";
+    width: 80%;
+    position: absolute;
+    height: 3px;
+    /* background-color: red; */
+    bottom: 6px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+/* =======================result========================= */
+.result {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 20px;
+    background-color: var(--color-3);
+    border-radius: var(--main-border);
+    box-shadow: var(--main-box-shadow);
+    position: relative;
+}
+
+.result .card {
+    width: 70px;
+    height: 80px;
+    cursor: pointer;
+    transition: var(--main-transition);
+    overflow: hidden;
+}
+
+.result .card:hover {
+    transform: scale(1.2);
+}
+
+.result .card:nth-child(even) {
+    background-color: var(--test-color-light);
+    color: var(--test-color);
+}
+
+.result .icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result .click-card {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    z-index: 11111;
+    top: 0;
+    transform: scale(1.2) translate(0, -166px);
+    font-size: 4em;
+    animation: animationCardResult 0.1s ease-in-out 20;
+}
+
+.result .click-card:hover {
+    transform: scale(1.2) translate(0, -166px);
+}
+
+.result .click-card::before {
+    height: 8px;
+    bottom: 17px;
+    border-top: 3px solid;
+    border-bottom: 3px solid;
+}
+
+.result .click-card.result-card {
+    animation: animationCardResult 0.3s ease-in-out 1;
+}
+
+.result .click-card.result-card::after {
+    content: attr(text-result);
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-result);
+    /* rgb(101, 135, 101) rgb(255, 68, 68) */
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7em;
+    color: var(--test-color-light);
+
+}
+
+@keyframes animationCardResult {
+    0% {
+        transform: translate(0, -212px) rotateY(180deg);
+    }
+
+    100% {
+
+        transform: translate(0, -212px) rotateY(0deg);
+    }
+
+}
+
+/* ===========================help-hearts======================== */
+.help-hearts {
+    width: 100%;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--main-border);
+    box-shadow: var(--main-box-shadow);
+}
+
+.help-hearts .icon {
+    font-size: 1.2em;
+}
+
+.help-hearts .hearts {
+    color: rgb(255, 97, 97);
+}
+
+.help-hearts .hearts ._none {
+    color: var(--color-3);
+}
+
+.help-hearts .help {
+    color: var(--color-4);
+}
+
+.help-hearts .help ._none {
+    color: var(--color-3);
+}
+
+/* =================================exit================================= */
+.box {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-5);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--test-color-light);
+    font-size: 1.2em;
+    position: absolute;
+    right: 150px;
+    cursor: pointer;
+    /* overflow: hidden; */
+
+}
+
+.box i {
+    transition: transform 0.5s ease-in-out;
+}
+
+.box .tow {
+    position: absolute;
+    transform: translateX(-50px);
+}
+
+.box:hover .one {
+    transform: translateX(50px);
+}
+
+.box:hover .tow {
+    transform: translateX(0px);
+}
+
+.help {
+    left: 150px;
+}

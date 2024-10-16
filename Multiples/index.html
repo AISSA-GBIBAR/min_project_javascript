@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Multiples</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+
+    <!-- <div class="button-Start-game btn" value-test ="Start Game" ></div> -->
+
+    <section>
+
+        <div class="clock">
+            <h3 class="title"> timer</h3>
+            <div class="numberClock">
+                <div class="image"><i class="bi bi-stopwatch"></i></div>
+                <div class="number">
+                    <span class="min">00</span>
+                    <span class="dots">:</span>
+                    <span class="seconds">00</span>
+                </div>
+            </div>
+            <div class="line" style="--i:90deg;"></div>
+        </div>
+
+        <div class="score">
+            <div class="infoScour">
+                <span class="newScore showInfo" text-info = "new" style="--left:-10px;">00</span>
+                <span class="less-more">
+                    <span class="less showInfo" text-info = "less" style="--left:5px;">00</span>
+                    <span class="more showInfo" text-info = "Larger" style="--left:-4px;" >00</span>
+                </span>
+            </div>
+            <span class="text">Score</span>
+            <span class="oldScore showInfo" text-info = "last" style="--left:-10px;">00</span>
+        </div>
+        <div class="screen">
+            <div class="card mony" text-card="many">00</div>
+            <div class="card days" text-card="days">00</div>
+        </div>
+        <div class="result">
+            <span class="icon"><i class="bi bi-hand-index-thumb"></i></span>
+            <div class="card one card-result" text-card="one" >000</div>
+            <div class="card tow card-result" text-card="tow">000</div>
+            <div class="card three card-result" text-card="three">000</div>
+            <div class="card for card-result" text-card="for">000</div>
+        </div>
+
+        <div class="help-hearts">
+            <div class="hearts">
+                <span class="icon one _none"><i class="bi bi-heart-fill"></i></span>
+                <span class="icon tow"><i class="bi bi-heart-fill"></i></span>
+                <span class="icon thre"><i class="bi bi-heart-fill"></i></span>
+            </div>
+            <div class="help">
+                <span class="icon one _none"><i class="bi bi-patch-question-fill"></i></span>
+                <span class="icon tow"><i class="bi bi-patch-question-fill"></i></span>
+                <span class="icon thre"><i class="bi bi-patch-question-fill"></i></span>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="box exit" text-data="exit">
+        <i class="bi bi-arrow-right one" ></i>
+        <i class="bi bi-arrow-right tow" ></i>
+    </div>
+    <div class="box help" text-data="exit">
+        <i class="bi bi-patch-question-fill one"></i>
+         <i class="bi bi-patch-question-fill tow"></i>
+    </div>
+
+    <!-- <script src="js/clock.js"></script> -->
+    <script src="js/app.js" type="module"></script>
+</body>
+
+</html>
