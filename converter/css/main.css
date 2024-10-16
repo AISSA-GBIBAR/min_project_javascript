@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+*{
+ box-sizing: border-box;
+ padding: 0;
+ margin: 0;
+font-family: 'Rubik', sans-serif;
+}
+
+:root{
+    --color-1:#04050D;
+    --color-2:#012340;
+    --color-3:#03588C;
+    --color-4:#ACD7F2;
+    --color-5:#3DADD9;
+    --color-6:#80c6e1;
+
+    --min-borde:10px;
+    --min-transition: all 0.8s ease-in-out;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-1);
+    color: #04050D;
+}
+.containerCalc{
+    padding: 20px;
+    width: 400px;
+    height: 500px;
+    background-color: var(--color-4);
+    border-radius: var(--min-borde);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 21% 15% 1fr;
+    gap: 5px;
+    /* box-shadow: #3dadd978 1px 6px 100px 0px; */
+}
+.screen{
+    width: 100%;
+    background-color:var(--color-6) ;
+    padding: 20px;
+    height: 100%;
+    border-radius: var(--min-borde);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 10px;
+    position: relative;
+}
+.screen .result{
+    transition: var(--min-transition);
+}
+.screen .input,
+.screen .result.equalShow{
+    font-size: 1.5em;
+    transition: var(--min-transition);
+}
+
+.screen .Arch span,
+.screen .result.equalShow .Arch span{
+    font-size: 0.6em;
+    margin-left: 4px;
+    position: relative;
+    bottom: -6px;
+    left: 2px;
+}
+.screen .input.noShow{
+    font-size: 0.8em;
+}
+.screen .input.noShow .Arch span{
+    font-size: 0.6em;
+}
+.screen .Arch{
+    color: var(--color-3);
+}
+.result{
+    color: var(--color-3);
+}
+
+.inconHistory{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size:1.5em ;
+    color: var(--color-3);
+    cursor: pointer;
+    transition:var(--min-transition);
+}
+.inconHistory:hover{
+color: var(--color-1);
+}
+/* __________________________________________________________________________________________ */
+.selectBox{
+    width: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: var(--min-transition);
+
+}
+.typeConverter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.selectBox .icon i::before{
+    transform: rotate(180deg);
+    transition: var(--min-transition);
+}
+.selectBox.active .icon i::before{
+    transform: rotate(0deg);
+}
+.showSelect{
+    display: flex;
+    justify-content: space-between;
+    background-color:var(--color-6) ;
+    padding: 15px;
+    border-radius: var(--min-borde);
+}
+.itemSelect{
+    padding: 10px;
+    border-radius: var(--min-borde);
+    background-color:var(--color-6) ;
+    position: absolute;
+    width: 100%;
+    top: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--min-transition);
+}
+.selectBox.active .itemSelect{
+    top: 62px;
+    opacity: 1;
+    visibility: visible;
+    z-index: 111;
+}
+.item{
+    padding: 10px;
+    margin: 4px 0;
+    border-radius: var(--min-borde);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7em;
+    transition: var(--min-transition);
+}
+.item span:last-child{
+    color: #03588C;
+}
+.item.active{
+    background-color: var(--color-5);
+    font-size: 1em;
+}
+.item.antherHover  {
+    background-color: transparent;
+    font-size: 0.7em;
+}
+.item:hover{
+    background-color: var(--color-5);
+    font-size: 1em;
+}
+
+
+/* =================================================================== */
+
+
+.buttonCalc{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 8px;
+}
+.buttonCalc .equle{
+    grid-area: -4/5/-1/-1;
+}
+.buttonCalc .btnCalc,
+.buttonCalc .Clear,
+.buttonCalc .equle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    background-color:var(--color-3);
+    height: 100%;
+    border-radius: var(--min-borde);
+    font-size: 1.5em;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--color-4);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.buttonCalc .Clear{
+    background-color:#2272a3 ;
+}
+.buttonCalc .equle{
+    background-color: var(--color-5);
+    /* color: var(--color-2); */
+    font-size: 2em;
+}
+.buttonCalc .alpha{
+    background-color: #2180ba;
+}
+.opacityBtn{
+    opacity: 0.4;
+}
+
+/* ________________________________________history_________________________________________ */
+
+.history{
+    width: 60%;
+    position: absolute;
+    z-index: 11111;
+    padding: 10px;
+    background-color: var(--color-2);
+    border-radius: var(--min-borde);
+    color: var(--color-4);
+    top: 10px;
+    transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s linear;
+}
+.uphistroy::-webkit-scrollbar{
+    width: 5px;
+}
+.uphistroy::-webkit-scrollbar-thumb{
+    background-color: var(--color-3);
+    border-radius: var(--min-borde);
+}
+.uphistroy{
+    overflow-y: auto;
+    width: 100%;
+    max-height: 10vh;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+@media (max-width:820px) {
+    .history{
+        width: 90%;
+    }
+}
+.history.active{
+    top: 50%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.history .saveResult{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.history .watheResult{
+    display: flex;
+    gap: 7px;
+}
+.history .watheResult .typeInput{
+    font-size: 0.7em;
+    position: relative;
+    top: 4px;
+}
+.history .arrow{
+    margin-right: 2px;
+    position: relative;
+    top: 6px;
+}
+.history .close{
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    background-color: var(--color-2);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--min-borde);
+    color: var(--color-5);
+    font-size: 1.4em;
+    cursor: pointer;
+    transition: var(--min-transition);
+}
+.history .close:hover{
+    color: var(--color-4);
+}

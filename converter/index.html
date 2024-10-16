@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter</title>
+    <!-- link icon  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <div class="container containerCalc">
+
+        <div class="screen zonClick">
+            <div class="input">
+                <span class="Arch">(</span>
+                <span class="textInput numberInput" data-text-input=""></span>
+                <span class="Arch">)<span class="typeInput" data-type-input=""></span> </span>
+            </div>
+            <div class="result">
+                <span class="Arch">(</span>
+                <span class="textInputResult"></span>
+                <span class="Arch">)<span class="typeInput" data-type-input=""></span></span>
+            </div>
+            <div class="inconHistory"><i class="bi bi-clock-history"></i></div>
+        </div>
+        <div class="typeConverter">
+
+            <div class="selectBox">
+                <div class="showSelect">
+                    <div class="text">Binary</div>
+                    <div class="icon"><i class="bi bi-caret-down-fill"></i></div>
+                </div>
+                <div class="itemSelect">
+                    <div class="item active"><span class="typeText">Binary</span><span class="type"
+                            data-type="2">2</span></div>
+                    <div class="item"><span class="typeText">Decimal</span><span class="type" data-type="10">10</span>
+                    </div>
+                    <div class="item"><span class="typeText">Octal</span><span class="type" data-type="8">8</span></div>
+                    <div class="item"><span class="typeText">Hexadecimal</span><span class="type"
+                            data-type="16">16</span></div>
+                </div>
+            </div>
+
+            <div class="selectBox">
+                <div class="showSelect">
+                    <div class="text">Decimal</div>
+                    <div class="icon"><i class="bi bi-caret-down-fill"></i></div>
+                </div>
+                <div class="itemSelect">
+                    <div class="item"><span class="typeText">Binary</span><span class="type" data-type="2">2</span>
+                    </div>
+                    <div class="item active"><span class="typeText">Decimal</span><span class="type"
+                            data-type="10">10</span></div>
+                    <div class="item"><span class="typeText">Octal</span><span class="type" data-type="8">8</span></div>
+                    <div class="item"><span class="typeText">Hexadecimal</span><span class="type"
+                            data-type="16">16</span></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="buttonCalc zonClick">
+
+            <div class="btnCalc Decimal Octal Hexadecimal sivn" data-btn-input="7">7</div>
+            <div class="btnCalc Decimal Hexadecimal ething" data-btn-input="8">8</div>
+            <div class="btnCalc Decimal Hexadecimal nine" data-btn-input="9">9</div>
+            <div class="btnCalc Hexadecimal alpha F" data-btn-input="F">F</div>
+            <div class="Clear">C</div>
+
+            <div class="btnCalc Decimal Octal Hexadecimal for" data-btn-input="4">4</div>
+            <div class="btnCalc Decimal Octal Hexadecimal five" data-btn-input="5">5</div>
+            <div class="btnCalc Decimal Octal Hexadecimal sixe" data-btn-input="6">6</div>
+            <div class="btnCalc Hexadecimal alpha E" data-btn-input="E">E</div>
+            <div class="equle">=</div>
+
+            <div class="btnCalc Binary Decimal Octal Hexadecimal one" data-btn-input="1">1</div>
+            <div class="btnCalc Decimal Octal Hexadecimal tow" data-btn-input="2">2</div>
+            <div class="btnCalc Decimal Octal Hexadecimal three" data-btn-input="3">3</div>
+            <div class="btnCalc Hexadecimal alpha D" data-btn-input="D">D</div>
+
+            <div class="btnCalc Binary Decimal Octal Hexadecimal ziro" data-btn-input="0">0</div>
+            <div class="btnCalc Hexadecimal alpha A" data-btn-input="A">A</div>
+            <div class="btnCalc Hexadecimal alpha B" data-btn-input="B">B</div>
+            <div class="btnCalc Hexadecimal alpha C" data-btn-input="C">C</div>
+
+        </div>
+
+    </div>
+
+    <div class="history">
+        <div class="close"><i class="bi bi-x"></i></div>
+        <div class="uphistroy">
+
+        </div>
+    </div>
+
+
+
+    <script src="js/select.js" type="module"></script>
+    <script src="js/showbutton.js" type="module"></script>
+    <script src="js/enterInput.js" type="module"></script>
+    <script src="js/binaireDecimal.js" type="module"></script>
+
+</body>
+
+</html>
